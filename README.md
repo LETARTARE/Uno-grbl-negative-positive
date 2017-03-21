@@ -2,7 +2,7 @@
 
 ## Cette version devrait permettre de gérer au choix un espace négatif ( version d'origine) ou un espace positif. ##
 
-## This version should make it possible to manage either a negative space (original version) or a positive space.* ##
+## This version should make it possible to manage either a negative space (original version) or a positive space. ##
 
 
 ***
