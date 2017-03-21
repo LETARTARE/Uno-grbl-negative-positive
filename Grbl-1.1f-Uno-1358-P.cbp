@@ -10,7 +10,7 @@
 			<notes>
 				<![CDATA[use avr-gcc into " path...\WinAVR-4.9.2 "
 
-modified linkeur : 'avr-g++.exe' -> 'avr-gcc.exe'
+modified linker : 'avr-g++.exe' -> 'avr-gcc.exe'
 
 trunk 1.1.f svn1358 March 19, 2017,  positive version
 ]]>
