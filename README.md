@@ -1,5 +1,10 @@
 ![GitHub Logo](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Logo/Grbl%20Logo%20250px.png?raw=true)
 
+## Cette version devrait permettre de gérer au choix un espace négatif ( version d'origine) ou un espace positif. ##
+
+## This version should make it possible to manage either a negative space (original version) or a positive space.* ##
+
+
 ***
 _Click the `Release` tab to download pre-compiled `.hex` files or just [click here](https://github.com/gnea/grbl/releases)_
 ***
