@@ -171,8 +171,13 @@ void limits_go_home(uint8_t cycle_mask)
 
     if (bit_istrue(cycle_mask,bit(idx))) {
       // Set target based on max_travel setting. Ensure homing switches engaged with search scalar.
+		#ifdef POSITIVE_SPACE
+		// NOTE: settings.max_travel[] is stored as a positive value.
+			max_travel = max(max_travel,(HOMING_AXIS_SEARCH_SCALAR)*settings.max_travel[idx]);
+		#else
       // NOTE: settings.max_travel[] is stored as a negative value.
       max_travel = max(max_travel,(-HOMING_AXIS_SEARCH_SCALAR)*settings.max_travel[idx]);
+		#endif
     }
   }
 
@@ -307,9 +312,21 @@ void limits_go_home(uint8_t cycle_mask)
         set_axis_position = 0;
       #else
         if ( bit_istrue(settings.homing_dir_mask,bit(idx)) ) {
+			#ifdef POSITIVE_SPACE
+			// NOTE: settings.max_travel[] is stored as a negative value.
+				set_axis_position = lround((-settings.max_travel[idx]+settings.homing_pulloff)*settings.steps_per_mm[idx]);
+			#else
+			// NOTE: settings.max_travel[] is stored as a positive value.
           set_axis_position = lround((settings.max_travel[idx]+settings.homing_pulloff)*settings.steps_per_mm[idx]);
+			#endif
         } else {
+        	#ifdef POSITIVE_SPACE
+        	// NOTE: settings.max_travel[] is stored as a positive value.
+				set_axis_position = lround((settings.max_travel[idx]-settings.homing_pulloff)*settings.steps_per_mm[idx]);
+			#else
+        	// NOTE: settings.max_travel[] is stored as a negative value.
           set_axis_position = lround(-settings.homing_pulloff*settings.steps_per_mm[idx]);
+			#endif
         }
       #endif
 

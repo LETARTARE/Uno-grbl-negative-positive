@@ -21,9 +21,16 @@
 #ifndef grbl_h
 #define grbl_h
 
+// If you want a positive space uncomment this line
+#define POSITIVE_SPACE
+
 // Grbl versioning system
+#ifdef  POSITIVE_SPACE
+	#define GRBL_VERSION "+1.1f"
+#else
 #define GRBL_VERSION "1.1f"
-#define GRBL_VERSION_BUILD "20170302"
+#endif
+#define GRBL_VERSION_BUILD "20170309"
 
 // Define standard libraries used by Grbl.
 #include <avr/io.h>

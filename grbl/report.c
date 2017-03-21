@@ -217,7 +217,14 @@ void report_grbl_settings() {
         case 0: report_util_float_setting(val+idx,settings.steps_per_mm[idx],N_DECIMAL_SETTINGVALUE); break;
         case 1: report_util_float_setting(val+idx,settings.max_rate[idx],N_DECIMAL_SETTINGVALUE); break;
         case 2: report_util_float_setting(val+idx,settings.acceleration[idx]/(60*60),N_DECIMAL_SETTINGVALUE); break;
-        case 3: report_util_float_setting(val+idx,-settings.max_travel[idx],N_DECIMAL_SETTINGVALUE); break;
+        case 3:
+        #ifdef POSITIVE_SPACE
+		// NOTE: settings.max_travel[] is stored as a positive value.
+        	report_util_float_setting(val+idx,fabs(settings.max_travel[idx]),N_DECIMAL_SETTINGVALUE); break;
+        #else
+        // NOTE: settings.max_travel[] is stored as a negative value.
+			report_util_float_setting(val+idx,-settings.max_travel[idx],N_DECIMAL_SETTINGVALUE); break;
+        #endif
       }
     }
     val += AXIS_SETTINGS_INCREMENT;
