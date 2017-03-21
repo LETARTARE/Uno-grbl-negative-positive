@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="grbl1.1f-Uno-1358-P" />
+		<Option execution_dir="../../0.9" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_avr_gcc_compiler_492" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[use avr-gcc into " path...\WinAVR-4.9.2 "
+
+modified linkeur : 'avr-g++.exe' -> 'avr-gcc.exe'
+
+trunk 1.1.f svn1358 March 19, 2017,  positive version
+]]>
+			</notes>
+		</Option>
+		<MakeCommands>
+			<Build command="$make -f $makefile $target" />
+			<CompileFile command="$make -f $makefile $file" />
+			<Clean command="$make -f $makefile clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="$make -q -f $makefile $target" />
+			<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
+		</MakeCommands>
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/grbl-1.1f-Uno1358-p.elf" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="bin/Release" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gnu_avr_gcc_compiler_492" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-fomit-frame-pointer" />
+					<Add option="-flto" />
+					<Add option="-Os" />
+					<Add option="-Wall" />
+					<Add option="-Wno-unused-parameter" />
+				</Compiler>
+				<Linker>
+					<Add option="-flto" />
+					<Add option="-s" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="avr-objcopy -O ihex -R .eeprom -R .eesafe $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_FILE).hex" />
+					<Add after="avr-objcopy --no-change-warnings -j .eeprom --change-section-lma .eeprom=0 -O ihex $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_FILE).eep.hex" />
+					<Add after="avr-size  $(TARGET_OUTPUT_FILE)" />
+					<Mode after="always" />
+				</ExtraCommands>
+				<MakeCommands>
+					<Build command="" />
+					<CompileFile command="" />
+					<Clean command="" />
+					<DistClean command="" />
+					<AskRebuildNeeded command="" />
+					<SilentBuild command=" &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Target title="info">
+				<Option platforms="" />
+				<Option type="4" />
+				<Option compiler="gnu_avr_gcc_compiler_492" />
+				<Compiler>
+					<Add option="-Wall" />
+				</Compiler>
+				<Environment>
+					<Variable name="target" value="all" />
+				</Environment>
+				<MakeCommands>
+					<Build command="$make -f $makefile $target" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Environment>
+				<Variable name="MCU" value="atmega328p" />
+				<Variable name="PROGRAMMER_ID" value="arduino" />
+				<Variable name="UPLOAD_BAUDRATE" value="115200" />
+				<Variable name="UPLOAD_PORT" value="COM6" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-flto" />
+			<Add option="-Os" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-mmcu=atmega328p" />
+			<Add option="-ffunction-sections" />
+			<Add option="-DF_CPU=16000000UL" />
+		</Compiler>
+		<Linker>
+			<Add option="-flto" />
+			<Add option="-s" />
+			<Add option="-fuse-linker-plugin" />
+			<Add option="-mmcu=atmega328p" />
+			<Add option="-Wl,--gc-sections" />
+			<Add library="m" />
+		</Linker>
+		<Unit filename="grbl/config.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/coolant_control.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/coolant_control.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/cpu_map.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/defaults.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/eeprom.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/eeprom.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/gcode.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/gcode.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/grbl.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/jog.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/jog.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/limits.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/limits.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/main.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/motion_control.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/motion_control.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/nuts_bolts.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/nuts_bolts.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/planner.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/planner.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/print.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/print.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/probe.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/probe.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/protocol.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/protocol.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/report.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/report.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/serial.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/serial.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/settings.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/settings.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/spindle_control.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/spindle_control.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/stepper.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/stepper.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/system.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="grbl/system.h">
+			<Option target="Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars set="default" />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
